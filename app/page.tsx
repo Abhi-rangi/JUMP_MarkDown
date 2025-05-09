@@ -117,13 +117,13 @@ export default function MarkdownEditor() {
         <div className="container flex justify-between items-center">
           <h1 className="text-2xl font-bold">Markdown Editor</h1>
           <a
-            href="https://github.com/yourusername/markdown-editor"
+            href="https://github.com/Abhi-rangi/JUMP_MarkDown"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
           >
             <Github size={16} />
-            <span>View on GitHub</span>
+            <span>By Abhishek Rangi</span>
           </a>
         </div>
       </header>
@@ -148,11 +148,21 @@ export default function MarkdownEditor() {
             <div className="mb-2 flex justify-between items-center">
               <h2 className="text-lg font-medium">Preview</h2>
               <div className="flex gap-2">
-                <Button variant="outline" size="sm" onClick={handleCopy} className="flex items-center gap-1">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleCopy}
+                  className="flex items-center gap-1"
+                >
                   <Copy size={16} />
                   <span>Copy</span>
                 </Button>
-                <Button variant="outline" size="sm" onClick={handleExport} className="flex items-center gap-1">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleExport}
+                  className="flex items-center gap-1"
+                >
                   <FileDown size={16} />
                   <span>Export PDF</span>
                 </Button>
@@ -175,7 +185,7 @@ export default function MarkdownEditor() {
                     remarkPlugins={[remarkGfm]}
                     components={{
                       code({ node, inline, className, children, ...props }) {
-                        const match = /language-(\w+)/.exec(className || "")
+                        const match = /language-(\w+)/.exec(className || "");
                         return !inline && match ? (
                           <SyntaxHighlighter
                             style={theme === "dark" ? vscDarkPlus : vs}
@@ -189,14 +199,17 @@ export default function MarkdownEditor() {
                           <code className={className} {...props}>
                             {children}
                           </code>
-                        )
+                        );
                       },
                       table({ node, ...props }) {
                         return (
                           <div className="overflow-x-auto my-4">
-                            <table className="min-w-full divide-y divide-gray-300 dark:divide-gray-700" {...props} />
+                            <table
+                              className="min-w-full divide-y divide-gray-300 dark:divide-gray-700"
+                              {...props}
+                            />
                           </div>
-                        )
+                        );
                       },
                       th({ node, ...props }) {
                         return (
@@ -204,10 +217,10 @@ export default function MarkdownEditor() {
                             className="px-3 py-3.5 text-left text-sm font-semibold bg-gray-100 dark:bg-gray-800"
                             {...props}
                           />
-                        )
+                        );
                       },
                       td({ node, ...props }) {
-                        return <td className="px-3 py-2 text-sm" {...props} />
+                        return <td className="px-3 py-2 text-sm" {...props} />;
                       },
                     }}
                   >
@@ -220,8 +233,7 @@ export default function MarkdownEditor() {
         </div>
       </main>
 
-
       <Toaster />
     </div>
-  )
+  );
 }
